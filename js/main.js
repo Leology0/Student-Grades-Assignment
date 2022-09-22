@@ -57,13 +57,14 @@ function firstTo40() {
 function lastTo50() {
   // Set the grade of the last student to 50.
   outputEl.innerHTML = "Last grade to 50";
-  
+  let lastGrade = grades.length - 1
+  grades[lastGrade] = 50
 }
 
 function randomTo100() {
   // Set the grade of a random student to 100.
   outputEl.innerHTML = "Random grade to 100";
-  grades[randomInt(0, 6)] = 100
+  grades[randomInt(0, 6)] = maxGrade
 }
 
 function addRandomGrade() {
@@ -82,17 +83,20 @@ function countBelow50() {
   // Count how many grades are below 50.  Output the result.
   outputEl.innerHTML = "Count grades below 50";
   let gradeCount = 0
-  if (grades < 50) {
-    gradeCount++
-    outputEl.innerHTML = gradeCount
+  for(let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+      gradeCount++
+      outputEl.innerHTML = gradeCount
+    }
   }
 }
 
 function lowGradesTo50() {
   // Change all grades that are below 50 to be equal to 50.
   outputEl.innerHTML = "Change low grades to 50";
-  if(grades < 50) {
-    grades = 50
+  for(let i = 0; i < grades.length; i++) {
+    if(grades[i] < 50) 
+    grades[i] = 50
   }
 }
 
@@ -100,7 +104,7 @@ function increaseGradesBy10() {
   // Increase each grade by 10%.
   outputEl.innerHTML = "Increase all grades by 10%";
   for(let i = 0; i < grades.length; i++) {
-    if (grades[i] <= 100)
+    if (grades[i] <= 90)
     grades[i] += 10
   }
 }
@@ -109,7 +113,9 @@ function decreaseGradesBy10() {
   // Decrease each grade by 10%.
   outputEl.innerHTML = "Decrease all grades by 10%";
   for (let i = 0; i < grades.length; i++) {
+    if(grades [i] >= 10)
     grades[i] -= 10
+
   }
 }
 
