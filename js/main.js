@@ -64,7 +64,7 @@ function lastTo50() {
 function randomTo100() {
   // Set the grade of a random student to 100.
   outputEl.innerHTML = "Random grade to 100";
-  grades[randomInt(0, 6)] = maxGrade
+  grades[randomInt(0, grades.length)] = maxGrade
 }
 
 function addRandomGrade() {
